@@ -121,8 +121,8 @@ def show_actvie_or_cancelled_orders(bookings,cancelled:str | None = None):
 def show_worning_json():
     valid = False
     while not valid:
-        choise = input("""
-The json file is corrupted!
+        choise = input(f"""
+The json is corrupted!
 Do you want to continue? 
 Doing so may overwrite the data contained therein.
 

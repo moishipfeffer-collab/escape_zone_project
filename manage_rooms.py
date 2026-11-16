@@ -12,7 +12,7 @@ def show_rooms_menu():
 4. Update room datails
 5. Activate or deactivate a room.
 
-Choose na option: """)
+Choose an option: """)
         if check_valid_menu_choise(choise,["1","2","3","4","5"]):
             return choise
         print("Not valid choise")
@@ -59,12 +59,15 @@ def show_full_details(room):
     print(f"\n{room}\n\n")
 
 def run_show_room_details(rooms):
-    room_id = get_room_id()
-    room = find_room_by_id(rooms,room_id)
-    if room:
-        show_full_details(room)
+    if not rooms:
+        print("\nNo rooms!")
     else:
-        print("\nThe room not found\n\n")
+        room_id = get_room_id()
+        room = find_room_by_id(rooms,room_id)
+        if room:
+            show_full_details(room)
+        else:
+            print("\nThe room not found\n\n")
 
 # option 3 add room 
 
@@ -106,37 +109,43 @@ def run_add_new_room(rooms):
 # option 4 update room details
 
 def run_update_room(rooms):
-    room_id = get_room_id()
-    room = find_room_by_id(rooms,room_id)
-    if room:
-        choise = show_updating_menu()
-        if choise == "1":
-            room["room_id"] = get_room_id()
-        elif choise == "2":
-            room["name"] = get_room_name()
-        elif choise == "3":
-            room["difficulty"] = get_difficulty()
-        elif choise == "4":
-            room["duration"] = get_duration()
-        elif choise == "5":
-            room["min_players"] = get_min_players()
-        elif choise == "6":
-            room["max_players"] = get_max_players()
-        elif choise == "7":
-            room["price_per_player"] = get_price_per_player()
-        save_rooms(rooms)
-        print("\n---------- Updated successfully ----------\n\n")
+    if not rooms:
+        print("No rooms!")
     else:
-        print("Room not found\n\n")
+        room_id = get_room_id()
+        room = find_room_by_id(rooms,room_id)
+        if room:
+            choise = show_updating_menu()
+            if choise == "1":
+                room["room_id"] = get_room_id()
+            elif choise == "2":
+                room["name"] = get_room_name()
+            elif choise == "3":
+                room["difficulty"] = get_difficulty()
+            elif choise == "4":
+                room["duration"] = get_duration()
+            elif choise == "5":
+                room["min_players"] = get_min_players()
+            elif choise == "6":
+                room["max_players"] = get_max_players()
+            elif choise == "7":
+                room["price_per_player"] = get_price_per_player()
+            save_rooms(rooms)
+            print("\n---------- Updated successfully ----------\n\n")
+        else:
+            print("Room not found\n\n")
 
 # option 5 activate or deactivate a room
 
 def chang_active(rooms):
-    room_id = get_room_id()
-    room = find_room_by_id(rooms,room_id)
-    if room:
-        room["is_active"] = not room["is_active"]
-        save_rooms(rooms)
-        print("\n---------- Activity changed successfully ----------\n\n")
+    if not rooms:
+        print("No rooms")
     else:
-        print("\nRoom not found\n\n")
+        room_id = get_room_id()
+        room = find_room_by_id(rooms,room_id)
+        if room:
+            room["is_active"] = not room["is_active"]
+            save_rooms(rooms)
+            print("\n---------- Activity changed successfully ----------\n\n")
+        else:
+            print("\nRoom not found\n\n")

@@ -201,6 +201,9 @@ def run_cancel_order(bookings):
     if not check_cancelling_time(order):
         print("\nCan not cancel the order, time over!\n\n")
         return
+    if order["status"] != "Active":
+        print("The order is already cancelled!")
+        return
     choise = insure_cancel()
     if choise == "1":
         print("\n---- your booking is safe! ----")

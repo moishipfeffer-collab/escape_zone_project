@@ -3,13 +3,12 @@ from run_program import show_menu,manage_rooms,booking_management,reports_manage
 from helpers import clean_terminal
 
 def main():
+    rooms = load_json_rooms()
+    bookings = load_json_bookings() 
+    if rooms == False or bookings == False:
+        return 
     valid = False
-    while not valid:
-        clean_terminal()
-        rooms = load_json_rooms()
-        bookings = load_json_bookings() 
-        if rooms == False or bookings == False:
-            return 
+    while not valid: 
         clean_terminal()
         choise = show_menu()
         if choise == "1":
