@@ -5,6 +5,7 @@ from helpers import clean_terminal
 def main():
     valid = False
     while not valid:
+        clean_terminal()
         rooms = load_json_rooms()
         bookings = load_json_bookings() 
         if rooms == False or bookings == False:

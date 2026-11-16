@@ -42,7 +42,7 @@ def show_active_income(bookings):
         print("No orders yet!")
     else:
         count = show_income(bookings,"active")
-        print(f"\nThe total income from active orders is: {count}")
+        print(f"\nThe total income from active orders is: {count}\n\n")
 
 # option 4 show cancellation fee
 

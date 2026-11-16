@@ -5,8 +5,8 @@ def get_next_booking_id(bookings):
     if bookings:
         latest_booking = max(bookings,key=lambda b: b["booking_id"][1:])
         latest_id = int(latest_booking["booking_id"][1:])
-        return "R" + str(latest_id+1).zfill(3)
-    return "R001"
+        return "B" + str(latest_id+1).zfill(3)
+    return "B001"
 
 def check_time(room,start_time,start_date = date.today()):
     minutes = int(room["duration"])
@@ -33,7 +33,7 @@ def check_collision(bookings,room,start_time,booking_date,order_id):
 
 def check_weekday(date,time):
     datetime_start = datetime.combine(date,time)
-    if datetime_start.weekday() in [6,7]:
+    if int(datetime_start.weekday()) in [4,5]:
         return True
     return False
 
@@ -103,14 +103,16 @@ def calc_cancellation_fee(order):
     else:
         return int(order["total_price"]) / 100 * 50
 
-def show_actvie_or_cancelled_orders(bookings,canceld:str | None = None):
+def show_actvie_or_cancelled_orders(bookings,cancelled:str | None = None):
     for order in bookings:
-        if canceld:
+        if cancelled:
             if order["status"].lower() == "cancelled":
                 print(f"\n{order}\n\n")
         else:
             if order["status"].lower() == "active":
                 print(f"\n{order}\n\n")
+    
+            
 
 def show_worning_json():
     valid = False

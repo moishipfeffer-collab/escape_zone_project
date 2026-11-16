@@ -51,7 +51,7 @@ def show_all_rooms(rooms):
 
 def find_room_by_id(rooms,room_id):
     for room in rooms:
-        if room["room_id"] == room_id:
+        if str(room["room_id"]) == str(room_id):
             return room
     return False
 

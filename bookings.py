@@ -153,10 +153,10 @@ def run_update_order(bookings,rooms):
     if not check_activity(rooms,order["room_id"]):
         print("\nRoom is not active\n")
         return
+    room = find_room_by_id(rooms,order["room_id"])
     choise = show_update_menu()
     if choise == "1":
         booking_date = get_date()
-        room = find_room_by_id(rooms,order["room_id"])
         order["booking_date"] = booking_date
     elif choise == "2":
         start_time = get_start_time()
@@ -170,7 +170,15 @@ def run_update_order(bookings,rooms):
             print("\nNot valid players number\n")
             return
         order["players"] = players
-    if not check_collision(bookings,room,order["start_time"],booking_date,order["booking_id"]):
+    subtotal = calc_subtotal(room,order)
+    total_price = calc_discount(subtotal,int(order["players"]))
+    if check_weekday(order["booking_date"],order["start_time"]):
+        price = get_weekend_price(total_price)
+    else:
+        price = total_price
+    add_price_to_order(order,price)
+
+    if not check_collision(bookings,room,order["start_time"],order["booking_date"],order["booking_id"]):
         print("\nnNot valid time, could cause a collision\n\n")
         return
     for booking in bookings:
