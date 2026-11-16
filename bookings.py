@@ -146,7 +146,9 @@ def run_update_order(bookings,rooms):
     if not bookings:
         print("No bookings yet!")
         return
-    bookings = change_type_time_date(bookings)
+    for book in bookings:
+        if type(book["booking_date"]) == str:
+            bookings = change_type_time_date(bookings)
     booking_id = get_order_id()
     order = find_order_by_data(bookings,"booking_id",booking_id)
     if not order:

@@ -93,7 +93,9 @@ def occupancy_rate_by_date(bookings,rooms):
     if not bookings:
         print("No orders yet!")
     else:
-        bookings = change_type_time_date(bookings)
+        for book in bookings:
+            if type(book["booking_date"]) == str:
+                bookings = change_type_time_date(bookings)
         count = 0
         date = get_date()
         room_id = get_room_id()
