@@ -59,16 +59,16 @@ def show_popular_room(rooms,bookings):
     if not bookings:
         print("No orders yet!")
     else:
-        count = 0
         highest = 0
         for room in rooms:
+            count = 0
             for order in bookings:
                 if order["room_id"] == room["room_id"]:
                     count += 1
                     if count > highest:
                         highest = count
                         room_id = room["room_id"]
-        print(f"\nThe most popular room is: room {room_id}\n\n")
+        print(f"\n\nThe most popular room is: room {room_id} with {highest} orders\n\n")
 
 # option 6 orders number per-room
 

@@ -58,7 +58,9 @@ def add_price_to_order(order,price):
 
 def run_create_order(bookings:list,rooms):
     if bookings:
-        bookings = change_type_time_date(bookings)
+        for book in bookings:
+            if type(book["booking_date"]) == str:
+                bookings = change_type_time_date(bookings)
     booking_id = get_next_booking_id(bookings)
     customer_name = get_name()
     room_id = get_room_id()
@@ -215,3 +217,4 @@ def run_cancel_order(bookings):
             get_ready_for_json(booking)
         save_bookings(bookings)
         print("\n------------- THE ORDER CANCELD SUCCESSPULLY -------------\n\n")
+

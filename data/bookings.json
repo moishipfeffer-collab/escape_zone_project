@@ -20,5 +20,60 @@
         "total_price": 439.88,
         "status": "Active",
         "cancellation_fee": 0.0
+    },
+    {
+        "booking_id": "B003",
+        "customer_name": "1",
+        "room_id": "1",
+        "booking_date": "2028-12-12",
+        "start_time": "12:12:00",
+        "players": 12,
+        "total_price": 1020.0,
+        "status": "Active",
+        "cancellation_fee": 0.0
+    },
+    {
+        "booking_id": "B004",
+        "customer_name": "moishi",
+        "room_id": "2",
+        "booking_date": "2029-12-12",
+        "start_time": "12:12:00",
+        "players": 8,
+        "total_price": 340.0,
+        "status": "Active",
+        "cancellation_fee": 0.0
+    },
+    {
+        "booking_id": "B005",
+        "customer_name": "moishi",
+        "room_id": "2",
+        "booking_date": "2028-12-12",
+        "start_time": "12:12:00",
+        "players": 9,
+        "total_price": 382.5,
+        "status": "Active",
+        "cancellation_fee": 0.0
+    },
+    {
+        "booking_id": "B006",
+        "customer_name": "rachel",
+        "room_id": "2",
+        "booking_date": "2027-12-12",
+        "start_time": "12:12:00",
+        "players": 9,
+        "total_price": 382.5,
+        "status": "Active",
+        "cancellation_fee": 0.0
+    },
+    {
+        "booking_id": "B007",
+        "customer_name": "sdf",
+        "room_id": "1",
+        "booking_date": "2029-11-11",
+        "start_time": "11:11:00",
+        "players": 9,
+        "total_price": 765.0,
+        "status": "Active",
+        "cancellation_fee": 0.0
     }
 ]

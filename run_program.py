@@ -104,7 +104,7 @@ def reports_management(bookings,rooms):
             get_enter()
         elif choise == "5":
             clean_terminal()
-            show_popular_room(bookings,rooms)
+            show_popular_room(rooms,bookings)
             get_enter()
         elif choise == "6":
             clean_terminal()
