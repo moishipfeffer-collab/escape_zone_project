@@ -1,6 +1,6 @@
 from validations import check_valid_menu_choise
 from helpers import show_actvie_or_cancelled_orders,show_income,change_type_time_date
-from inputs import get_date
+from inputs import get_date,get_room_id
 def report_menu():
     print("\n-------------- REPORTS MANAGEMENT --------------\n")
     valid = False
@@ -96,10 +96,12 @@ def occupancy_rate_by_date(bookings,rooms):
         bookings = change_type_time_date(bookings)
         count = 0
         date = get_date()
+        room_id = get_room_id()
         for order in bookings:
             if order["booking_date"] == date:
-                for room in rooms:
-                    if room["room_id"] == order["room_id"]:
-                        count += int(room["duration"]) + 15
+                if order["room_id"] == room_id:
+                    for room in rooms:
+                        if room["room_id"] == room_id:
+                            count += int(room["duration"]) + 15
         print(f"\nThe occupancy rate on {date} is {count / (12 * 60) * 100} %\n\n")
 

@@ -3,10 +3,21 @@
         "booking_id": "B001",
         "customer_name": "moishi",
         "room_id": "1",
-        "booking_date": "2028-12-12",
-        "start_time": "15:15:00",
-        "players": "25",
-        "total_price": 1190.0,
+        "booking_date": "2026-12-12",
+        "start_time": "12:30:00",
+        "players": "19",
+        "total_price": 1040.06,
+        "status": "Cancelled",
+        "cancellation_fee": 0
+    },
+    {
+        "booking_id": "B002",
+        "customer_name": "rachel",
+        "room_id": "R001",
+        "booking_date": "2026-12-23",
+        "start_time": "12:23:00",
+        "players": "5",
+        "total_price": 360.0,
         "status": "Active",
         "cancellation_fee": 0.0
     }

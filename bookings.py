@@ -208,4 +208,4 @@ def run_cancel_order(bookings):
         for booking in bookings:
             get_ready_for_json(booking)
         save_bookings(bookings)
-        print("\n------------- THE ORDER CANCELD SUCCESSPULLY -------------")
+        print("\n------------- THE ORDER CANCELD SUCCESSPULLY -------------\n\n")
