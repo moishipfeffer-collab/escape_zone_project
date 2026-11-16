@@ -3,6 +3,7 @@ from run_program import show_menu,manage_rooms,booking_management,reports_manage
 from helpers import clean_terminal
 
 def main():
+    clean_terminal()
     rooms = load_json_rooms()
     bookings = load_json_bookings() 
     if rooms == False or bookings == False:

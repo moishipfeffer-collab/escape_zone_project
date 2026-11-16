@@ -109,12 +109,12 @@ def show_actvie_or_cancelled_orders(bookings,cancelled:str | None = None):
             if order["status"].lower() == "cancelled":
                 print(f"\n{order}\n\n")
                 return
-            print("\nNo active order\n\n ")
+            print("\nNo cancelled orders\n\n ")
         else:
             if order["status"].lower() == "active":
                 print(f"\n{order}\n\n")
                 return
-            print("No cancelled order\n\n")
+            print("No active orders\n\n")
     
             
 
@@ -122,7 +122,7 @@ def show_worning_json(file):
     valid = False
     while not valid:
         choise = input(f"""
-The json    `111111 {file} is corrupted!
+The json {file} is corrupted!
 Do you want to continue? 
 Doing so may overwrite the data contained therein.
 

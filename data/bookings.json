@@ -1,0 +1,13 @@
+[
+    {
+        "booking_id": "B001",
+        "customer_name": "moishi",
+        "room_id": "1",
+        "booking_date": "2026-11-19",
+        "start_time": "12:30:00",
+        "players": "10",
+        "total_price": 850.0,
+        "status": "Active",
+        "cancellation_fee": 0.0
+    }
+]
