@@ -4,7 +4,7 @@ from manage_rooms import find_room_by_id
 from storage import save_bookings
 from helpers import get_next_booking_id,check_weekday,check_collision,check_time,change_type_time_date
 from helpers import get_ready_for_json,find_order_by_data,show_update_menu,insure_cancel
-from helpers import calc_cancellation_fee
+from helpers import calc_cancellation_fee,check_cancelling_time
 
 def show_booking_menu():
     while True:
@@ -197,6 +197,9 @@ def run_cancel_order(bookings):
     order = find_order_by_data(bookings,"booking_id",order_id)
     if not order:
         print("\nOrder not found\n\n")
+        return
+    if not check_cancelling_time(order):
+        print("\nCan not cancel the order, time over!\n\n")
         return
     choise = insure_cancel()
     if choise == "1":

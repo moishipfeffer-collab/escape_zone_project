@@ -22,7 +22,7 @@ def check_collision(bookings,room,start_time,booking_date,order_id):
     minutes = int(room["duration"]) + 15
     for booking in bookings:
         if booking["room_id"] == room["room_id"]:
-            if booking["booking_date"] == booking_date and booking["booking_id"] != order_id:
+            if booking["booking_date"] == booking_date and booking["booking_id"] != order_id and booking["status"] == "Active":
                 start_datetime = datetime.combine(booking_date,start_time)
                 booking_datetime = datetime.combine(booking_date,booking["start_time"])
                 datetime_game_plus = start_datetime + timedelta(minutes=minutes)
@@ -145,3 +145,7 @@ def show_income(bookings,active:str | None = None):
                 count += int(order["cancellation_fee"])
     return count
 
+def check_cancelling_time(order):
+    if datetime.combine(order["booking_date"],order["start_time"]) < datetime.now():
+        return False
+    return True

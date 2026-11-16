@@ -47,6 +47,6 @@
         "min_players": "12",
         "max_players": "45",
         "price_per_player": "56",
-        "is_active": true
+        "is_active": false
     }
 ]
