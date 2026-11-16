@@ -8,5 +8,15 @@
         "max_players": "15",
         "price_per_player": "100",
         "is_active": true
+    },
+    {
+        "room_id": "2",
+        "name": "rachel",
+        "difficulty": "Hard",
+        "duration": 50,
+        "min_players": 5,
+        "max_players": 10,
+        "price_per_player": 50.5,
+        "is_active": true
     }
 ]

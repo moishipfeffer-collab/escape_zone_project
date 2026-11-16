@@ -36,7 +36,7 @@ def create_order(booking_id,customer_name,room_id,booking_date,start_time,player
     }
 
 def calc_subtotal(room,order):
-        return int(room["price_per_player"]) * int(order["players"])
+        return int(room["price_per_player"]) * order["players"]
 
 def calc_discount(price,players):
     if players <= 4:

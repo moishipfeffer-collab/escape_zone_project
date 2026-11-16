@@ -16,9 +16,14 @@ def get_number(massage,user_input):
         if user_input.lower() == "minutes":
             return number
         else:
-            if check_number(number):
-                return number
-            print(f"{user_input} must be a positive number")
+            if user_input.lower() == "price":
+                if check_number(number,"float"):
+                    return float(number)
+                print(f"{user_input} must be a positive number")
+            else:
+                if check_number(number):
+                    return int(number)
+                print(f"{user_input} must be a hole positive number")
 
 def get_room_id():
     return get_input("\nEnter room id: ","Room id")

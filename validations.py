@@ -1,5 +1,3 @@
-from datetime import time,timedelta,datetime,date
-
 def check_valid_menu_choise(choise,nums:list):
     if choise in nums:
         return True
@@ -10,11 +8,17 @@ def check_empty(user_input):
         return True
     return False
 
-def check_number(number):
-    try:
-        return int(number) > 0
-    except ValueError:
-        return False
+def check_number(number,float_num:str | None = None):
+    if not float_num:
+        try:
+            return int(number) > 0
+        except ValueError:
+            return False
+    else:
+        try:
+            return float(number) > 0
+        except ValueError:
+            return False
 
 def check_id_exists(room_id,rooms):
     for room in rooms:
