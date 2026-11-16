@@ -103,5 +103,5 @@ def occupancy_rate_by_date(bookings,rooms):
                     for room in rooms:
                         if room["room_id"] == room_id:
                             count += int(room["duration"]) + 15
-        print(f"\nThe occupancy rate on {date} is {count / (12 * 60) * 100} %\n\n")
+        print(f"\nThe occupancy rate on {date} is {round(count / (12 * 60) * 100,2)} %\n\n")
 
