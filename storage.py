@@ -11,9 +11,14 @@ def load_json(file):
             with open(file,"r") as file:
                 return json.load(file)
         except json.JSONDecodeError:
-            if show_worning_json() == "1":
-                return []
-            return False
+            if file == rooms_file:
+                if show_worning_json("rooms file") == "1":
+                    return []
+                return False
+            else:
+                if show_worning_json("orders file") == "1":
+                    return []
+                return False
     else:
         return []
 
